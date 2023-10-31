@@ -2,6 +2,6 @@
 
 for i in range(100):
     if i < 100:
-        print(f"{i:02}", end=", ")
+        print("{:02}".format(i), end=", ")
     else:
         "\n"
