@@ -2,6 +2,7 @@
 
 import sys
 
+def main():
     count = len(sys.argv) - 1
 
     if count == 0:
@@ -13,3 +14,6 @@ import sys
 
     for i in range(count):
         print("{}: {}".format(i + 1, sys.argv[i + 1]))
+
+if __name__ == "__main__":
+    main()
