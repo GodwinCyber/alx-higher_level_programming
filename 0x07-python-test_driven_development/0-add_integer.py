@@ -2,14 +2,13 @@
 """define an integer addition function"""
 
 def add_integer(a, b=98):
-    """add two integer or float and return integer
-    Argument are typecasted before addition is performed
-
-    Raises:
-       TyperError is raised if either a or b is not int of float
-    """
-    if ((not isinstance(a, int) and not isinstance(a, float))):
+    """add two integer or float and return integer"""
+    if type(a) is not int and type(a) is not float:
         raise TypeError("a must be an integer")
-    if ((not isinstance(b, int) and not isinstance(b, float))):
+    if type(b) is not int and type(b) is not float:
         raise TypeError("b must be an integer")
-    return (int(a) + int(b))
+    if type(a) is float:
+        a = int(a)
+    if type(b) is float:
+        b = int(b)
+    return (a + b)
