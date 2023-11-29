@@ -5,10 +5,12 @@ def text_indentation(text):
     """
     if not isinstance(text, str):
         raise TypeError("text must be a string")
-    new_line = False
+
+    new_line = True
     for char in text:
         if char in ".?:":
-            print(char, end="\n\n")
+            print(char, end="")
+            print("\n\n", end="")
             new_line = True
         elif char == " " and new_line:
             continue
