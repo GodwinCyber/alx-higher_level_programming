@@ -1,0 +1,50 @@
+----------------------------------
+----------------------------------
+Intereactive test ``print_sorted``
+----------------------------------
+----------------------------------
+
+Python 3.8.10 (default, Mar 15 2022, 12:22:08) 
+[GCC 9.4.0] on linux
+Type "help", "copyright", "credits" or "license" for more information.
+>>> MyList = __import__('1-my_list').MyList
+>>> a = MyList()
+>>> isinstance(a, list)
+True
+>>> my_list = MyList()
+>>> my_list.append(5)
+>>> my_list.append(1)
+>>> my_list.append(4)
+>>> print(my_list)
+[5, 1, 4]
+>>> my_list.print_sorted()
+[1, 4, 5]
+>>> print(my_list)
+[5, 1, 4]
+>>> b = MyList()
+>>> print(b)
+[]
+>>> b.print_sorted()
+[]
+>>> c = MyList()
+>>> issubclass(type(c), list)
+True
+>>> e = MyList()
+>>> e.append(-5)
+>>> e.append(-4)
+>>> e.append(-10)
+>>> print(e)
+[-5, -4, -10]
+>>> e.print_sorted()
+[-10, -5, -4]
+>>> print(e)
+[-5, -4, -10]
+>>> f = MyList()
+>>> f.append(-20)
+>>> f.append(-4)
+>>> f.append(-10)
+>>> print(f)
+[-20, -4, -10]
+>>> f.print_sorted()
+[-20, -10, -4]
+>>>
