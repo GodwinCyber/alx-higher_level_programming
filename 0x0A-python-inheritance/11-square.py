@@ -1,7 +1,5 @@
 #!/usr/bin/python3
-"""class"""
-
-
+"""define a rectangleSubClass"""
 Rectangle = __import__('9-rectangle').Rectangle
 
 
