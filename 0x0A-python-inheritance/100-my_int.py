@@ -1,4 +1,5 @@
 #!/usr/bin/python3
+"""define class that import from int"""
 
 
 class MyInt(int):
