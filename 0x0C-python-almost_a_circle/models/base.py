@@ -1,7 +1,7 @@
 #!/usr/bin/python3
 """Define a base class that manage id without duplicate"""
 import json
-import os
+import csv
 
 
 class Base:
@@ -50,28 +50,56 @@ class Base:
 
     @classmethod
     def create(cls, **dictionary):
-        """returns an instance with all attributes already set"""
+        """Return a class instantied from a dictionary of attributes"""
         if dictionary and dictionary != {}:
             if cls.__name__ == "Rectangle":
-                dummy = cls(1, 1)
-            elif cls.__name__ == "Square":
-                dummy = cls(1)
+                new = cls(1, 1)
             else:
-                dummy = cls()
-            dummy.update(**dictionary)
-            return dummy
+                new = cls(1)
+            new.update(**dictionary)
+            return new
 
     @classmethod
     def load_from_file(cls):
-        """returns a list of instances from a file"""
-        filename = cls.__name__ + ".json"
-        if not os.path.exists(filename):
-            return []
-        else:
-            result = []
+        """Return a list of classes instantiated from a file of JSON strings"""
+        filename = str(cls.__name__) + ".json"
+        try:
             with open(filename, "r") as jsonfile:
-                dictionary_list = json.load(jsonfile)
-                for dictionary in dictionary_list:
-                    instance = cls.create(**dictionary)
-                    result.append(instance)
-                    return result
+                list_dicts = Base.from_json_string(jsonfile.read())
+                return [cls.create(**d) for d in list_dicts]
+        except IOError:
+            return []
+
+    @classmethod
+    def save_to_file_csv(cls, list_objs):
+        """Write the CSV serialization of a list of objects to a file"""
+        filename = cls.__name__ + ".csv"
+        with open(filename, "w", newline="") as csvfile:
+            if list_objs is None or list_objs == []:
+                csvfile.write("[]")
+            else:
+                if cls.__name__ == "Rectangle":
+                    fieldnames = ["id", "width", "height", "x", "y"]
+                else:
+                    fieldnames = ["id", "size", "x", "y"]
+                writer = csv.DictWriter(csvfile, fieldnames=fieldnames)
+                for obj in list_objs:
+                    writer.writerow(obj.to_dictionary())
+
+
+    @classmethod
+    def load_from_file_csv(cls):
+        """Return a list of classes instantiated from a CSV file"""
+        filename = cls.__name__ + ".csv"
+        try:
+            with open(filename, "r", newline="") as csvfile:
+                if cls.__name__ == "Rectangle":
+                    fieldnames = ["id", "width", "height", "x", "y"]
+                else:
+                    fieldnames = ["id", "size", "x", "y"]
+                list_dicts = csv.DictReader(csvfile, fieldnames=fieldnames)
+                list_dicts = [dict([k, int(v)] for k, v in d.items())
+                        for d in list_dicts]
+                return [cls.create(**d) for d in list_dicts]
+        except IOError:
+            return []
