@@ -1,6 +1,7 @@
 #!/usr/bin/python3
 """Define a base class that manage id without duplicate"""
 import json
+import os
 
 
 class Base:
@@ -59,3 +60,18 @@ class Base:
                 dummy = cls()
             dummy.update(**dictionary)
             return dummy
+
+    @classmethod
+    def load_from_file(cls):
+        """returns a list of instances from a file"""
+        filename = cls.__name__ + ".json"
+        if not os.path.exists(filename):
+            return []
+        else:
+            result = []
+            with open(filename, "r") as jsonfile:
+                dictionary_list = json.load(jsonfile)
+                for dictionary in dictionary_list:
+                    instance = cls.create(**dictionary)
+                    result.append(instance)
+                    return result
