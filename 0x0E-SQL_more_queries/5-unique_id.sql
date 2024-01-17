@@ -4,4 +4,4 @@
 -- name VARCHAR(256)
 -- database name will be passed as an argument of the mysql command
 -- script should not fail if unique_id  exist
-CREATE TABLE IF NOT EXISTS unique_id (id INT DEFAULT 1 PRIMARY KEY, name VARCHAR(256));
+CREATE TABLE IF NOT EXISTS unique_id (id INT DEFAULT 1 UNIQUE, name VARCHAR(256));
