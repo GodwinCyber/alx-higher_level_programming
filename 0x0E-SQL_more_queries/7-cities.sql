@@ -5,7 +5,7 @@
 -- name VARCHAR(256) can't null
 -- database name will be passed as an argument of the mysql command
 -- script should not fail if hbtn_0d_usa exist
--- script should not fail if cities exist
+-- script should not fail if cities exists
 CREATE DATABASE IF NOT EXISTS hbtn_0d_usa;
 USE hbtn_0d_usa;
 CREATE TABLE IF NOT EXISTS cities (id INT UNIQUE NOT NULL AUTO_INCREMENT,
