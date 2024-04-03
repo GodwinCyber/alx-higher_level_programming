@@ -1,8 +1,5 @@
 <h1><strong>0x15. JavaScript - Web jQuery</strong></h1>
-<div data-react-class="tags/Tags" data-react-props="{&quot;tags&quot;:[{&quot;id&quot;:34,&quot;value&quot;:&quot;Front-end&quot;,&quot;author_id&quot;:null,&quot;created_at&quot;:&quot;2022-06-16T01:59:38.000Z&quot;,&quot;updated_at&quot;:&quot;2022-06-16T01:59:38.000Z&quot;},{&quot;id&quot;:46,&quot;value&quot;:&quot;JavaScript&quot;,&quot;author_id&quot;:null,&quot;created_at&quot;:&quot;2022-06-16T01:59:38.000Z&quot;,&quot;updated_at&quot;:&quot;2022-06-16T01:59:38.000Z&quot;}]}" data-react-cache-id="tags/Tags-0"></div>
-
-<div data-react-class="projects/ProjectMetadata" data-react-props="{&quot;metadata&quot;:{&quot;weight&quot;:1,&quot;correction&quot;:{&quot;released&quot;:true,&quot;requires_auto_correction&quot;:false,&quot;requires_manual_correction&quot;:true},&quot;bpi&quot;:{&quot;current&quot;:true,&quot;started&quot;:false,&quot;in_second_deadline&quot;:false,&quot;starts_at&quot;:&quot;2024-04-03T06:00:00.000+01:00&quot;,&quot;ends_at&quot;:&quot;2024-04-04T06:00:00.000+01:00&quot;,&quot;second_deadline_at&quot;:&quot;2024-04-09T06:00:00.000+01:00&quot;}}}" data-react-cache-id="projects/ProjectMetadata-0"></div>
-<p><img src="jquary.jpg" alt="" loading='lazy' style="" /></p>
+Front-end JavaScript<br>
 <h2>Resources</h2>
 
 <p><strong>Read or watch</strong>:</p>
